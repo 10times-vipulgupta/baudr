@@ -420,12 +420,13 @@
                                                 $('#phoneCode').val(phone);
                                                 $.ajax({
                                                     type: "POST",
-                                                    url: 'enquiry.php',
+                                                    url: 'http://local-board.10times.com/enquiry/submit',
                                                     data: $('#enquiryForm').serialize(),
                                                     success: function (data)
                                                     {
                                                         data = JSON.parse(data);
                                                         if (data.success) {
+                                                            $('#enquiryForm')[0].reset();
                                                             Swal.fire({
                                                                 position: "top-end",
                                                                 icon: "success",
